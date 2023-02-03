@@ -1,14 +1,24 @@
 #!/usr/bin/bash
 
+# Setup Git
+git config --global user.email "poh.zijie@gmail.com"
+git config --global user.name "zjpoh"
+
+# Copy RCs
+cp condarc $HOME/.condarc
+cp inputrc $HOME/.inputrc
+cp vimrc_pixelbook $HOME/.vimrc
+# Install vim plug - Run :PlugInstall
+
 __has_conda=$(which conda)
-if [ -z $__has_conda ]; then 
+if [ -z $__has_conda ]; then
     echo Conda not found
     echo Install miniconda
 
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
     bash ~/miniconda.sh -b -p $HOME/miniconda
-   
-    # Set up to auto init conda 
+
+    # Set up to auto init conda
     echo >> ~/.bashrc
     echo "# >>> conda initialize >>>" >> ~/.bashrc
     echo "# !! Contents within this block are managed by 'conda init' !!" >> ~/.bashrc
