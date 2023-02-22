@@ -8,6 +8,9 @@ git config --global user.name "zjpoh"
 cp condarc $HOME/.condarc
 cp inputrc $HOME/.inputrc
 cp vimrc_pixelbook $HOME/.vimrc
+
+# Install vim with clipboard
+sudo apt install vim-gtk -y
 # Install vim plug - Run :PlugInstall
 
 __has_conda=$(which conda)
@@ -36,4 +39,9 @@ if [ -z $__has_conda ]; then
 else
     echo Conda found at $__has_conda
 fi
+
+# Create conda environment
+source ~/.bashrc
+conda create -n py39 python=3.9 jupyter jupyterlab numpy pandas scikit-learn matplotlib scipy -y
+
 
